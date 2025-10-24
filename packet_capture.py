@@ -45,5 +45,5 @@ def capture_packets(detector=None, interface=None):
         except Exception as e:
             logging.error(f"[!] Error analyzing packet: {e}")
 
-    sniff(prn=process_packet, iface=interface, store=False, filter="ip", count=50)
+    sniff(prn=process_packet, iface=interface, store=False, filter="ip", count=5000)
     logging.info("✅ Packet capture completed. Data saved in data/packets_log.csv.")
