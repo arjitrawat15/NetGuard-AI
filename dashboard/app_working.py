@@ -164,7 +164,7 @@ with st.sidebar:
     
     if analyzer_on:
         st.success("✅ Running")
-        if st.button("⏹️ Stop", use_container_width=True):
+        if st.button("⏹️ Stop", width='stretch'):
             if stop_analyzer():
                 st.success("Stopped!")
                 time.sleep(0.3)
@@ -173,7 +173,7 @@ with st.sidebar:
                 st.error("Failed to stop")
     else:
         st.warning("⚠️ Stopped")
-        if st.button("▶️ Start", use_container_width=True):
+        if st.button("▶️ Start", width='stretch'):
             success, msg = start_analyzer()
             if success:
                 st.success(msg)
@@ -186,7 +186,7 @@ with st.sidebar:
     
     # Sample data
     st.subheader("📊 Sample Data")
-    if st.button("🎲 Generate", use_container_width=True):
+    if st.button("🎲 Generate", width='stretch'):
         with st.spinner("Generating..."):
             if generate_sample():
                 st.success("✅ Generated!")
@@ -558,7 +558,7 @@ with tab4:
             
             if threat_data:
                 df_threats = pd.DataFrame(threat_data)
-                st.dataframe(df_threats, height=300, use_container_width=True)
+                st.dataframe(df_threats, height=300, width='stretch')
         else:
             st.success("🎉 No threats detected! System is secure.")
             st.info("All network traffic appears normal. Continue monitoring for any anomalies.")
