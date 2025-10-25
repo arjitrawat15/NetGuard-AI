@@ -44,13 +44,9 @@ NetGuardAI/
 │   └── main.py                 # Original main entry point
 │
 ├── 📚 Documentation:
-│   ├── README.md               # Project overview
-│   ├── FINAL_WORKING_GUIDE.md  # Complete usage guide
-│   └── DASHBOARD_ENHANCEMENTS.md # Latest features
-│
-└── 🚀 Scripts:
-    ├── START_HERE.sh           # Main entry point
-    └── WHATS_NEW.sh            # Feature overview
+    ├── README.md               # Project overview
+    ├── FINAL_WORKING_GUIDE.md  # Complete usage guide
+    └── DASHBOARD_ENHANCEMENTS.md # Latest features
 ```
 
 ![alt text](image.png)
