@@ -11,22 +11,47 @@ NETGUARD-AI is a hybrid cybersecurity tool that captures live network packets, e
 - Streamlit-powered visualization dashboard  
 - Real-time alerts and logging  
 
----
-
-### 🗂️ Project Structure
-NETGUARD-AI/
-├── main.py
-├── packet_capture.py
-├── feature_extractor.py
-├── threat_model.py
-├── dashboard/
-│ └── app.py
-├── data/
-├── models/
-├── utils/
-│ └── init.py
-├── requirements.txt
-└── README.md
+```
+NetGuardAI/
+├── 📊 dashboard/
+│   └── app_working.py          # Main dashboard (CURRENTLY RUNNING)
+│
+├── 📂 data/
+│   ├── packets_log.csv         # Sample packet data
+│   ├── threat_logs.json        # Sample threat data
+│   ├── ml_predictions.json     # Live ML predictions
+│   └── ml_stats.json           # Live statistics
+│
+├── 🤖 models/
+│   └── threat_detector.joblib  # Trained ML model
+│
+├── 🔧 utils/
+│   ├── __init__.py
+│   └── data_preprocess.py      # Data preprocessing utilities
+│
+├── 📓 jupyter_notebooks/
+│   ├── Evalution.ipynb
+│   ├── feature_and_combined.ipynb
+│   └── Thread_model.ipynb
+│
+├── 🐍 Core Python Files:
+│   ├── live_simulator.py       # Live data generator (NO SUDO!)
+│   ├── train_model.py          # ML model training
+│   ├── realtime_analyzer.py    # Real packet analyzer (backup)
+│   ├── feature_extractor.py    # Feature extraction
+│   ├── packet_capture.py       # Packet capture utilities
+│   ├── threat_model.py         # Threat detection logic
+│   └── main.py                 # Original main entry point
+│
+├── 📚 Documentation:
+│   ├── README.md               # Project overview
+│   ├── FINAL_WORKING_GUIDE.md  # Complete usage guide
+│   └── DASHBOARD_ENHANCEMENTS.md # Latest features
+│
+└── 🚀 Scripts:
+    ├── START_HERE.sh           # Main entry point
+    └── WHATS_NEW.sh            # Feature overview
+```
 
 ![alt text](image.png)
 ![alt text](image-1.png)
