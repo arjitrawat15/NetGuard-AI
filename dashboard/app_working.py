@@ -100,34 +100,35 @@ def load_ml_stats():
     return {}
 
 def check_analyzer():
-    """Check if simulator is running"""
+    """Check if analyzer is running"""
     try:
-        result = subprocess.run(['pgrep', '-f', 'live_simulator.py'], 
+        # Windows-compatible process check
+        result = subprocess.run(['tasklist', '/FI', 'IMAGENAME eq python.exe', '/FO', 'CSV'], 
                               capture_output=True, text=True)
-        return bool(result.stdout.strip())
+        return 'realtime_analyzer.py' in result.stdout
     except:
         return False
 
 def start_analyzer():
-    """Start live simulator - NO SUDO NEEDED!"""
+    """Start real-time analyzer - Windows compatible"""
     try:
-        python_path = os.path.join(base_dir, '.venv', 'bin', 'python')
-        simulator_script = os.path.join(base_dir, 'live_simulator.py')
+        # Use system Python instead of virtual environment path
+        analyzer_script = os.path.join(base_dir, 'realtime_analyzer.py')
         
-        # Start simulator
-        cmd = [python_path, simulator_script]
+        # Start analyzer with system Python
+        cmd = ['python', analyzer_script]
         subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, 
-                        start_new_session=True)
+                        start_new_session=True, cwd=base_dir)
         
-        return True, "Live simulator started!"
+        return True, "Real-time analyzer started!"
     except Exception as e:
         return False, str(e)
 
 def stop_analyzer():
-    """Stop simulator - NO SUDO NEEDED"""
+    """Stop analyzer - Windows compatible"""
     try:
-        # Kill simulator
-        subprocess.run(['pkill', '-9', '-f', 'live_simulator.py'], 
+        # Windows-compatible process kill
+        subprocess.run(['taskkill', '/F', '/IM', 'python.exe', '/FI', 'WINDOWTITLE eq *realtime_analyzer*'], 
                       capture_output=True)
         time.sleep(0.3)
         return True
@@ -137,8 +138,8 @@ def stop_analyzer():
 def generate_sample():
     """Generate sample data"""
     try:
-        python_path = os.path.join(base_dir, '.venv', 'bin', 'python')
-        cmd = f'{python_path} -c "from utils.data_preprocess import generate_sample_data, generate_sample_threats; generate_sample_data(100); generate_sample_threats(20)"'
+        # Use system Python
+        cmd = f'python -c "from utils.data_preprocess import generate_sample_data, generate_sample_threats; generate_sample_data(100); generate_sample_threats(20)"'
         result = subprocess.run(cmd, shell=True, capture_output=True, text=True, cwd=base_dir)
         return result.returncode == 0
     except:

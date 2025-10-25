@@ -8,10 +8,10 @@ def preprocess_packet_data():
     input_file = 'data/packets_cleaned.csv'
     output_file = 'data/packets_features.csv'
 
-    print("🔄 Loading packet data...")
+    print("Loading packet data...")
     df = pd.read_csv(input_file)
 
-    print(f"✅ Loaded {len(df)} rows with columns: {list(df.columns)}")
+    print(f"Loaded {len(df)} rows with columns: {list(df.columns)}")
 
     # Ensure ports are integers; fill NaN with 0
     df['src_port'] = pd.to_numeric(df['src_port'], errors='coerce').fillna(0).astype(int)
@@ -40,7 +40,7 @@ def preprocess_packet_data():
 
     # Save the processed features
     df.to_csv(output_file, index=False)
-    print(f"✅ Features saved to {output_file} ({len(df)} rows)")
+    print(f"Features saved to {output_file} ({len(df)} rows)")
 
 def generate_sample_data(num_packets=100):
     """Generate sample packet data with CURRENT timestamps"""
@@ -87,7 +87,7 @@ def generate_sample_data(num_packets=100):
     # Save to CSV
     df = pd.DataFrame(packets)
     df.to_csv('data/packets_log.csv', index=False)
-    print(f"✅ Generated {num_packets} sample packets with current timestamps")
+    print(f"Generated {num_packets} sample packets with current timestamps")
     return True
 
 def generate_sample_threats(num_threats=20):
@@ -127,7 +127,7 @@ def generate_sample_threats(num_threats=20):
     with open('data/threat_logs.json', 'w') as f:
         json.dump(threats, f, indent=2)
     
-    print(f"✅ Generated {num_threats} sample threats")
+    print(f"Generated {num_threats} sample threats")
     return True
 
 if __name__ == "__main__":
