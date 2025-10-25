@@ -1,10 +1,10 @@
 {
   "running": true,
   "window_size": 5,
-  "total_packets": 12475,
-  "total_predictions": 161,
-  "threats_detected": 160,
+  "total_packets": 13307,
+  "total_predictions": 175,
+  "threats_detected": 174,
   "buffer_size": 10000,
-  "prediction_queue_size": 161,
-  "last_update": "2025-10-25T13:49:31.023836"
+  "prediction_queue_size": 175,
+  "last_update": "2025-10-25T13:50:42.111683"
 }
