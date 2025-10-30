@@ -7,11 +7,10 @@ import joblib
 import os
 
 def generate_synthetic_training_data(n_samples=1000):
-    print("📊 Generating synthetic training data...")
+    print("Generating synthetic training data...")
     
     np.random.seed(42)
     
-    # Normal traffic features
     normal_samples = n_samples // 2
     normal_data = {
         'total_packets': np.random.randint(10, 100, normal_samples),
@@ -43,7 +42,6 @@ def generate_synthetic_training_data(n_samples=1000):
         'dst_ip_entropy': np.random.uniform(0.5, 3.0, normal_samples),
     }
     
-    # Threat traffic features (anomalous patterns)
     threat_samples = n_samples // 2
     threat_data = {
         'total_packets': np.random.randint(100, 1000, threat_samples),  # More packets
@@ -128,7 +126,7 @@ def train_model(output_path='models/threat_detector.joblib'):
         'importance': model.feature_importances_
     }).sort_values('importance', ascending=False)
     
-    print("\n🎯 Top 10 Important Features:")
+    print("\n Top 10 Important Features:")
     print(feature_importance.head(10).to_string(index=False))
     
     os.makedirs('models', exist_ok=True)
