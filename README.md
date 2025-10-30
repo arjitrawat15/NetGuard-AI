@@ -7,7 +7,7 @@ NETGUARD-AI is a hybrid cybersecurity tool that captures live network packets, e
 
 ### ⚙️ Features
 - Live packet capture using Scapy or PyShark  
-- ML-based intrusion detection (trained on Kaggle dataset)  
+- ML-based intrusion detection 
 - Streamlit-powered visualization dashboard  
 - Real-time alerts and logging  
 
