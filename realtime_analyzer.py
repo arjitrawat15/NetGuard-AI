@@ -1,8 +1,3 @@
-"""
-Real-time Network Traffic Analyzer with ML Integration
-Continuously captures packets, extracts features, and predicts threats using ML
-"""
-
 import time
 import logging
 import threading
@@ -67,7 +62,7 @@ class RealTimeAnalyzer:
             self.model = joblib.load(model_path)
             logging.info(f"✅ ML model loaded from {model_path}")
         except Exception as e:
-            logging.warning(f"⚠️ Could not load model: {e}")
+            logging.warning(f"+Could not load model: {e}")
             logging.warning("Using rule-based detection instead")
             self.model = None
     
