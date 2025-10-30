@@ -49,5 +49,6 @@ NetGuardAI/
     └── DASHBOARD_ENHANCEMENTS.md # Latest features
 ```
 
-![alt text](image.png)
-![alt text](image-1.png)
+![alt text](image1.jpg)
+![alt text](image2.jpg)
+![alt text](image3.jpg)
