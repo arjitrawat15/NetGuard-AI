@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # Page config
 st.set_page_config(
-    page_title="🛡️ NetGuardAI Dashboard",
+    page_title="🛡️ NetSentry-AI Dashboard",
     page_icon="🛡️",
     layout="wide"
 )
